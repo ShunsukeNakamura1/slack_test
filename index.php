@@ -33,5 +33,5 @@ $result = file_get_contents($url, false, stream_context_create($options));
 error_log("--------");
 error_log($result);
 error_log("--------");
-error_log($url.'?'.http_build_query($data));
+error_log(var_dump(stream_context_create($options)));
 error_log("--------");
