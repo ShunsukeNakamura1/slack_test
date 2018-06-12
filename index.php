@@ -25,8 +25,11 @@ $data = array(
   'channel' => $json->event->channel,
   'text' => $json->event->text
 );
-
-$result = file_get_contents($url.'?'.http_build_query($data));
+$options = array('http' => array(
+    'method' => 'POST',
+    'content' => $data
+));
+$result = file_get_contents($url, false, stream_context_create($options));
 error_log("--------");
 error_log($result);
 error_log("--------");
