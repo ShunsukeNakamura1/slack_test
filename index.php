@@ -29,3 +29,6 @@ $data = array(
   )
 );
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+$result =  curl_exec($ch);
+error_log($result);
+curl_close($ch);
