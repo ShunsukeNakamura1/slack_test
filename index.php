@@ -19,7 +19,7 @@ echo "Content-type: text/plain";
 echo $challenge;*/
 
 $data = $json->event->text;
-$replymessage="";
+$replymessage="aaaa";
 $patern = '/'.getenv('BotID').'/';
 error_log('patern : '.$patern);
 if(preg_match($patern, $data)){
