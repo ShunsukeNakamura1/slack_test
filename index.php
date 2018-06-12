@@ -21,7 +21,6 @@ $url = 'https://slack.com/api/chat.postMessage';
 
 $data = array(
   'token' => $json->token,
-  'ok' => 'true',
   'channel' => $json->event->channel,
   'text' => $json->event->text
 );
