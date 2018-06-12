@@ -21,12 +21,14 @@ $url = 'https://slack.com/api/chat.postMessage';
 $data = array(
   'token' => $json->token,
   'channel' => $json->event->channel,
-  'text' => $json->event->text
+  'message' => array(
+    'text' => $json->event->text
+  )
 );
 $content = http_build_query($data);
 $options = array('http' => array(
     'method' => 'POST',
     'content' => $content
 ));
-error_log($options);
 $contents = file_get_contents($url, false, stream_context_create($options));
+error_log($contents);
