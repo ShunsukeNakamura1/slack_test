@@ -17,17 +17,18 @@ $type = $json->type;
 echo "HTTP 200 OK";
 echo "Content-type: text/plain";
 echo $challenge;*/
-$url = 'https://slack.com/api/chat.postMessage'.'?token='.$json->token;
+$url = 'https://slack.com/api/chat.postMessage';
 
 $data = array(
-  //'ok' => 'true',
+  'ok' => 'true',
+  'token' => $json->token,
   'channel' => $json->event->channel,
   'text' => $json->event->text
 );
 
-$result = file_get_contents($url.'&'.http_build_query($data).'pretty=1');
+$result = file_get_contents($url.http_build_query($data));
 error_log("--------");
 error_log($result);
 error_log("--------");
-error_log($url.'&'.http_build_query($data));
+error_log($url.http_build_query($data));
 error_log("--------");
