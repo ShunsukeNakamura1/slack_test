@@ -22,14 +22,12 @@ $url = 'https://slack.com/api/chat.postMessage'.'?token='.$json->token;
 $data = array(
   'ok' => 'true',
   'channel' => $json->event->channel,
-  'message' => array(
-    'text' => $json->event->text
-  )
+  'text' => $json->event->text
 );
 
-$result = file_get_contents($url.http_build_query($data));
+$result = file_get_contents($url.'&'.http_build_query($data));
 error_log("--------");
 error_log($result);
 error_log("--------");
-error_log($url.http_build_query($data));
+error_log($url.'&'.http_build_query($data));
 error_log("--------");
