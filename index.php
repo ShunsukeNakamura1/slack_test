@@ -10,10 +10,22 @@ error_log($postData);
 // jeson‰»
 $json = json_decode($postData);
 
+/*”FØ‚Ä‚·‚Æ—p
 $token = $json->token;
 $challenge = $json->challenge;
 $type = $json->type;
-
 echo "HTTP 200 OK";
 echo "Content-type: text/plain";
-echo $challenge;
+echo $challenge;*/
+$url = 'https://slack.com/api/chat.postMessage';
+$data = array(
+  'token' => $json->token,
+  'channel' => $json->event->channel,
+  'text' => $json->event->text
+);
+$content = http_build_query($data);
+$options = array('http' => array(
+    'method' => 'POST',
+    'content' => $content
+));
+$contents = file_get_contents($url, false, stream_context_create($options));
