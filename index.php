@@ -25,7 +25,7 @@ $data = array(
   'text' => $json->event->text
 );
 
-$result = file_get_contents($url.'&'.http_build_query($data));
+$result = file_get_contents($url.'&'.http_build_query($data).'pretty=1');
 error_log("--------");
 error_log($result);
 error_log("--------");
