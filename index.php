@@ -20,7 +20,8 @@ echo $challenge;*/
 
 $data = $json->event->text;
 $replymessage="";
-if(preg_match('/*@Test*/', $data)){
+
+if(preg_match('/*'.getenv('BotID').'*/', $data)){
     if(preg_match('/*Hello*/', $data)){
         $replymessage = "Hello!\nHello";
     }
