@@ -20,7 +20,7 @@ echo $challenge;*/
 $url = 'https://slack.com/api/chat.postMessage'.'?token='.$json->token;
 
 $data = array(
-  'ok' => 'true',
+  //'ok' => 'true',
   'channel' => $json->event->channel,
   'text' => $json->event->text
 );
