@@ -28,4 +28,5 @@ $options = array('http' => array(
     'method' => 'POST',
     'content' => $content
 ));
+error_log($options);
 $contents = file_get_contents($url, false, stream_context_create($options));
