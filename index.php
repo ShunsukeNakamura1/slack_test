@@ -36,6 +36,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $replymessage2 = curl_escape ($ch , $replymessage );
+error_log('patern : '.$replymessage2);
 $url = 'https://slack.com/api/chat.postMessage?token='.getenv('OAuthAccessToken').'&channel='.$json->event->channel.'&text='.$replymessage2;
 curl_setopt($ch, CURLOPT_URL, $url);
 $result=curl_exec($ch);
