@@ -17,9 +17,9 @@ $type = $json->type;
 echo "HTTP 200 OK";
 echo "Content-type: text/plain";
 echo $challenge;*/
-$url = 'https://slack.com/api/chat.postMessage';
+$url = 'https://slack.com/api/chat.postMessage'.'?token='.$json->token;
 $data = array(
-  'token' => $json->token,
+  'ok' => 'true',
   'channel' => $json->event->channel,
   'message' => array(
     'text' => $json->event->text
