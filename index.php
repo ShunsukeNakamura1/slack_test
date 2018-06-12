@@ -19,7 +19,7 @@ echo "Content-type: text/plain";
 echo $challenge;*/
 
 $data = $json->event->text;
-$replymessage="aaaa";
+$replymessage="";
 $patern = '/'.getenv('BotID').'/';
 error_log('patern : '.$patern);
 if(preg_match($patern, $data)){
@@ -27,7 +27,6 @@ if(preg_match($patern, $data)){
         $replymessage = "Hello!";
     }
 }
-
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
