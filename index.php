@@ -20,10 +20,10 @@ echo $challenge;*/
 
 $data = $json->event->text;
 $replymessage="";
-$patern = '/*'.getenv('BotID').'*/';
+$patern = '/'.getenv('BotID').'/';
 error_log('patern : '.$patern);
 if(preg_match($patern, $data)){
-    if(preg_match('/*Hello*/', $data)){
+    if(preg_match('/Hello/', $data)){
         $replymessage = "Hello!\nHello";
     }
 }
