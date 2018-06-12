@@ -4,7 +4,8 @@ echo "hello";
 error_log("start");
 
 // POST‚ðŽó‚¯Žæ‚é
-if($_POST["user_name"] != "slackbot"){
-  $text = $_POST["user_name"];
-  error_log($text);
-}
+$postData = file_get_contents('php://input');
+error_log($postData);
+
+// jeson‰»
+$json = json_decode($postData);
