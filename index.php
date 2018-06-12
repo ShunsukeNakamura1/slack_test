@@ -9,3 +9,11 @@ error_log($postData);
 
 // jeson‰»
 $json = json_decode($postData);
+
+$token = $json->token;
+$challenge = $json->challenge;
+$type = $json->type;
+
+echo "HTTP 200 OK";
+echo "Content-type: text/plain";
+echo $challenge;
