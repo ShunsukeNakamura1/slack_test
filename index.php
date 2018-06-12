@@ -16,4 +16,4 @@ $type = $json->type;
 
 echo "HTTP 200 OK";
 echo "Content-type: text/plain";
-//echo $challenge;
+echo $challenge;
