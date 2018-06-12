@@ -18,6 +18,9 @@ echo "HTTP 200 OK";
 echo "Content-type: text/plain";
 echo $challenge;*/
 $url = 'https://slack.com/api/chat.postMessage'.'?token='.$json->token;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url); 
+curl_setopt($ch,CURLOPT_POST, true);
 $data = array(
   'ok' => 'true',
   'channel' => $json->event->channel,
@@ -25,10 +28,4 @@ $data = array(
     'text' => $json->event->text
   )
 );
-$content = http_build_query($data);
-$options = array('http' => array(
-    'method' => 'POST',
-    'content' => $content
-));
-$contents = file_get_contents($url, false, stream_context_create($options));
-error_log($contents);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
