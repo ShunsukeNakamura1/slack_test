@@ -25,13 +25,12 @@ $data = array(
   'channel' => $json->event->channel,
   'text' => $json->event->text
 );
+$content = http_build_query($data);
 $options = array('http' => array(
     'method' => 'POST',
-    'content' => $data
+    'content' => $content
 ));
 $result = file_get_contents($url, false, stream_context_create($options));
 error_log("--------");
 error_log($result);
-error_log("--------");
-error_log(var_dump(stream_context_create($options)));
 error_log("--------");
