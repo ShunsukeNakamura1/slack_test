@@ -47,7 +47,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 //curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_URL, 'https://slack.com/api/chat.postMessage?token='.$json->token.'&channel='.$json->event->channel.'&text='.$json->event->text);
+curl_setopt($ch, CURLOPT_URL, 'https://slack.com/api/chat.postMessage?token='.'xoxp-367016455926-366262831957-379810825924-517aca11f1c617ab2125d0a15e00ad34'.'&channel='.$json->event->channel.'&text='.$json->event->text);
 $result=curl_exec($ch);
 error_log("--------");
 error_log($result);
